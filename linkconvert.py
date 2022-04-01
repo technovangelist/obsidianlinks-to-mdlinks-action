@@ -1,6 +1,12 @@
 import os
 
-from utils import getAllDocumentPaths
+from utils import getAllDocumentPaths, replaceurl
+
 docsdirectory = os.environ["INPUT_SRCROOTDIRECTORY"]
 allpaths = getAllDocumentPaths(docsdirectory)
-print(allpaths)
+
+for path in allpaths:
+    fullpath = path.split("/")
+    filename = fullpath[-1]
+
+    replaceurl(path, allpaths)
