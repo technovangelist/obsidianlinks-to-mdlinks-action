@@ -26,7 +26,7 @@ def getFileFullText(path):
 
 def replaceLinks(text, allpaths):
     foundmatches = re.findall(
-        r'(?<fullwikilink>\[\[(?<linkpage>.*?)\]\]?)', text)
+        r'(?P<fullwikilink>\[\[(?P<linkpage>.*?)\]\]?)', text)
     outputtext = text
     for item in foundmatches:
         fullwikilink = item[0]
