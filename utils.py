@@ -33,8 +33,11 @@ def replaceLinks(text, allpaths):
         linkpage = item[1] + ".md"
 
         for path in allpaths:
+            filename = path.split("/")[-1]
+            print('linkpage:', linkpage)
+            print("filename:", filename)
 
-            if linkpage.equals(path.split("/")[-1]):
+            if linkpage == filename:
                 pageurl = path
 
         print(pageurl)
