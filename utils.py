@@ -37,7 +37,7 @@ def replaceLinks(text, allpaths, docsdirectory):
         pageurl = ''
         for path in allpaths:
             filename = path.split("/")[-1]
-            print('linkpage:', linkpage)
+            print('linkpagename:', linkpagename)
             print("filename:", filename)
 
             if linkpagename + ".md" == filename:
