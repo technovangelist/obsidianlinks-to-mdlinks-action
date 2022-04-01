@@ -59,5 +59,6 @@ def replaceurl(path, allpaths, docsdirectory):
     fulltext = getFileFullText(path)
     replacedtext = replaceLinks(fulltext, allpaths, docsdirectory)
     print(replacedtext)
+    os.remove(path)
     with open(path.replace(':', ' -'), "w") as f:
         f.write(replacedtext)
