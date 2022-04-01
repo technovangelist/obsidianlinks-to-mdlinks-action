@@ -46,7 +46,7 @@ def replaceLinks(text, allpaths, docsdirectory):
         if len(pageurl) > 0:
 
             # print(pageurl)
-            replacetext = "[" + linkpagename + \
+            replacetext = "[" + linkpage + \
                 "]("+pageurl.replace(docsdirectory, "")+")"
         else:
             replacetext = "**"+linkpagename+"**"
