@@ -40,7 +40,6 @@ def replaceLinks(text, allpaths):
 
             if linkpage == filename:
                 pageurl = path
-                break
 
         print(pageurl)
         newoutputtext = outputtext.replace(
