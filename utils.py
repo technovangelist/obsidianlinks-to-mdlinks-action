@@ -47,7 +47,8 @@ def replaceLinks(text, allpaths, docsdirectory):
 
             # print(pageurl)
             replacetext = "[" + linkpage.replace(".md", "") + \
-                "]("+pageurl.replace(docsdirectory, "").replace(':', ' -')+")"
+                "]("+pageurl.replace(docsdirectory,
+                                     "/knowledge/").replace(':', ' -')+")"
         else:
             replacetext = "**"+linkpagename+"**"
         outputtext = outputtext.replace(
