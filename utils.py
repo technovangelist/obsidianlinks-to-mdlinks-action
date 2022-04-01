@@ -30,13 +30,16 @@ def replaceLinks(text, allpaths):
     outputtext = text
     for item in foundmatches:
         fullwikilink = item[0]
-        linkpage = item[1]
+        linkpage = item[1] + ".md"
 
-        pageurl = list(filter(lambda x: x.split(
-            "/")[-1] == linkpage + ".md", allpaths))
+        for path in allpaths:
+
+            if linkpage.equals(path.split("/")[-1]):
+                pageurl = path
+
         print(pageurl)
         outputtext.replace(
-            fullwikilink, "[" + pageurl[0] + "]("+pageurl[0]+")")
+            fullwikilink, "[" + pageurl + "]("+pageurl+")")
     return outputtext
 
 
