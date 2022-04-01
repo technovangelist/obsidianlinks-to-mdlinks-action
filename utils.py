@@ -40,11 +40,12 @@ def replaceLinks(text, allpaths):
 
             if linkpage == filename:
                 pageurl = path
+                break
 
         print(pageurl)
-        outputtext.replace(
+        newoutputtext = outputtext.replace(
             fullwikilink, "[" + pageurl + "]("+pageurl+")")
-    return outputtext
+    return newoutputtext
 
 
 def replaceurl(path, allpaths):
