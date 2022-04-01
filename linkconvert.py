@@ -9,4 +9,4 @@ for path in allpaths:
     fullpath = path.split("/")
     filename = fullpath[-1]
 
-    replaceurl(path, allpaths)
+    replaceurl(path, allpaths, docsdirectory)

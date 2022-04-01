@@ -24,14 +24,16 @@ def getFileFullText(path):
     return fulltext
 
 
-def replaceLinks(text, allpaths):
+def replaceLinks(text, allpaths, docsdirectory):
     foundmatches = re.findall(
         r'(?P<fullwikilink>\[\[(?P<linkpage>.*?)\]\]?)', text)
     outputtext = text
     for item in foundmatches:
         fullwikilink = item[0]
-        linkpage = item[1] + ".md"
-        linkpage = re.sub(r'^.*\|', '', linkpage)
+        linkpagename = item[1]
+        linkpagename = re.sub(r'^.*\|', '', linkpagename)
+        linkpage = linkpagename + ".md"
+
         pageurl = ''
         for path in allpaths:
             filename = path.split("/")[-1]
@@ -44,17 +46,18 @@ def replaceLinks(text, allpaths):
         if len(pageurl) > 0:
 
             print(pageurl)
-            replacetext = "[" + pageurl + "]("+pageurl+")"
+            replacetext = "[" + linkpagename + \
+                "]("+pageurl.replace(docsdirectory, "")+")"
         else:
-            replacetext = "**"+item[1]+"**"
+            replacetext = "**"+linkpagename+"**"
         outputtext = outputtext.replace(
             fullwikilink, replacetext)
     return outputtext
 
 
-def replaceurl(path, allpaths):
+def replaceurl(path, allpaths, docsdirectory):
     fulltext = getFileFullText(path)
-    replacedtext = replaceLinks(fulltext, allpaths)
+    replacedtext = replaceLinks(fulltext, allpaths, docsdirectory)
     print(replacedtext)
     with open(path, "w") as f:
         f.write(replacedtext)
