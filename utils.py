@@ -21,7 +21,7 @@ def getFileFullText(path):
     with open(path) as f:
         fulltext = f.read()
 
-    return re.sub(r"%%.*%%", "")
+    return re.sub(r"%%.*%%", "", fulltext)
 
 
 def replaceLinks(text, allpaths, docsdirectory):
