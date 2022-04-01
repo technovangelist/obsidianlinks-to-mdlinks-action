@@ -1,0 +1,9 @@
+name: "Obsidian Links to Markdown Links"
+description: "Convert ObsidianLinks to Markdown"
+inputs:
+  srcrootdirectory:
+    description: "root for files to be converted"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
