@@ -31,6 +31,7 @@ def replaceLinks(text, allpaths):
     for item in foundmatches:
         fullwikilink = item[0]
         linkpage = item[1] + ".md"
+        linkpage = re.sub(r'^.*?|', '', linkpage)
 
         for path in allpaths:
             filename = path.split("/")[-1]
