@@ -32,7 +32,7 @@ def replaceLinks(text, allpaths, docsdirectory):
         fullwikilink = item[0]
         linkpagesrc = item[1]
         linkpagename = re.sub(r'\|.*$', '', linkpagesrc)
-        linkpage = re.sub(r'^.*\|', linkpagesrc) + ".md"
+        linkpage = re.sub(r'^.*\|', '',  linkpagesrc) + ".md"
 
         pageurl = ''
         for path in allpaths:
