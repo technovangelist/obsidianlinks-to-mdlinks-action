@@ -34,8 +34,9 @@ def replaceLinks(text, allpaths):
 
         pageurl = list(filter(lambda x: x.split(
             "/")[-1] == linkpage + ".md", allpaths))
-
-        outputtext.replace(fullwikilink, "[" + pageurl + "]("+pageurl+")")
+        print(pageurl)
+        outputtext.replace(
+            fullwikilink, "[" + pageurl[0] + "]("+pageurl[0]+")")
     return outputtext
 
 
