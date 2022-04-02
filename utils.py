@@ -56,9 +56,17 @@ def replaceLinks(text, allpaths, docsdirectory):
     return outputtext
 
 
+def replaceMermaidBlocks(text):
+    regex = r"(```mermaid(?P<mermaid>[\s\S]*?)```)"
+    subst = "<div class=mermaid>\\g<mermaid></div>"
+    result = re.sub(regex, subst, text, 0, re.MULTILINE)
+    return result
+
+
 def replaceurl(path, allpaths, docsdirectory):
     fulltext = getFileFullText(path)
     replacedtext = replaceLinks(fulltext, allpaths, docsdirectory)
+    replacedtext = replaceMermaidBlocks(replacedtext)
     print(replacedtext)
     os.remove(path)
     with open(path.replace(':', ' -'), "w") as f:
