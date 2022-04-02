@@ -58,7 +58,7 @@ def replaceLinks(text, allpaths, docsdirectory):
 
 def replaceMermaidBlocks(text):
     regex = r"(```mermaid(?P<mermaid>[\s\S]*?)```)"
-    subst = "<div class=mermaid>\\g<mermaid></div>"
+    subst = "<script src='https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js'></script><div class=mermaid>\\g<mermaid></div>"
     result = re.sub(regex, subst, text, 0, re.MULTILINE)
     return result
 
